@@ -51,8 +51,8 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
-  const colorSubtract = "#9BC1BC";
-  const colorAdd = "#ED6A5A";
+  const colorSubtract = "#ED6A5A";
+  const colorAdd = "#9BC1BC";
   const colorH = "#2b2d42";
 
   return (

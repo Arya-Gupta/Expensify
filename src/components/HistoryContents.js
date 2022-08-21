@@ -23,8 +23,7 @@ export default function FolderList(props) {
   };
 
   const generateStyle = (transactionType) => {
-    if (transactionType == "expense") return expense;
-    else return income;
+    return (transactionType == "expense") ? expense : income;
   };
 
   return (
@@ -38,7 +37,7 @@ export default function FolderList(props) {
               <Avatar>{generateStyle(transaction.type).icon}</Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary={"$" + transaction.amount}
+              primary={"$" + Math.abs(transaction.amount)}
               secondary={transaction.text}
             />
           </ListItem>
