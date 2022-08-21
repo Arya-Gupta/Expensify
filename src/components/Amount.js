@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { GlobalContext } from "../context/GlobalState";
 
 export default function Amount() {
+  const { transactions } = useContext(GlobalContext);
+
+  const amountArr = transactions.map((transaction) => transaction.amount);
+  const total = amountArr.reduce((totalAmt, currentAmt) => totalAmt += currentAmt);
+
   return (
     <>
       <Box sx={{ marginBottom: "20px" }}>
@@ -15,7 +21,7 @@ export default function Amount() {
           }}
         />
         <Typography variant="h5" sx={{ paddingTop: "5px" }}>
-          700
+          {total}
         </Typography>
       </Box>
     </>
