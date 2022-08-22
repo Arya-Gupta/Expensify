@@ -41,7 +41,7 @@ export default function Amount() {
         sx={{ display: "block", marginBottom: "20px" }}
       >
         <Button>Income: ${income}</Button>
-        <Button>Expense: ${expense}</Button>
+        <Button>Expense: ${Math.abs(expense)}</Button>
       </ButtonGroup>
     </>
   );

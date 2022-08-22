@@ -7,6 +7,7 @@ import Amount from "./components/Amount";
 import Display from "./components/Display";
 import { GlobalProvider } from "./context/GlobalState";
 import "./App.css";
+import Snackbar from "./components/Snackbar";
 
 function App() {
   const colorR = "#E6EBE0";
@@ -55,6 +56,7 @@ function App() {
           </Grid>
         </Grid>
       </GlobalProvider>
+      <Snackbar />
     </>
   );
 }

@@ -8,22 +8,33 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function FolderList(props) {
   const { transactions } = useContext(GlobalContext);
-  
+
   const expense = {
     color: props.colorSubtract,
-    icon: <RemoveOutlinedIcon />
+    icon: <RemoveOutlinedIcon />,
   };
-  
+
   const income = {
     color: props.colorAdd,
-    icon: <AddIcon />
+    icon: <AddIcon />,
   };
 
   const generateStyle = (transactionType) => {
-    return (transactionType == "expense") ? expense : income;
+    return transactionType == "expense" ? expense : income;
+  };
+
+  const handleClick = () => {
+    console.info("You clicked the Chip.");
+  };
+
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
   };
 
   return (
@@ -40,6 +51,12 @@ export default function FolderList(props) {
               primary={"$" + Math.abs(transaction.amount)}
               secondary={transaction.text}
             />
+
+            <Tooltip title="Delete">
+              <IconButton>
+                <DeleteIcon />
+              </IconButton>
+            </Tooltip>
           </ListItem>
         </>
       ))}
