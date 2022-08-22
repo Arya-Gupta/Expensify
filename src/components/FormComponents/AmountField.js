@@ -6,8 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 
-export default function InputAdornments() {
-  const [amount, setAmount] = useState("");
+export default function InputAdornments(props) {
 
   return (
     <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -17,8 +16,8 @@ export default function InputAdornments() {
           <Input
             id="standard-adornment-amount"
             type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            value={props.amount}
+            onChange={(e) => props.setAmount(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
         </FormControl>

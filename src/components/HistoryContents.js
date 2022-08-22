@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 export default function FolderList(props) {
   const { transactions } = useContext(GlobalContext);
+  const { deleteTransaction } = useContext(GlobalContext);
 
   const expense = {
     color: props.colorSubtract,
@@ -39,20 +40,24 @@ export default function FolderList(props) {
 
   return (
     <List sx={{ width: "70%", margin: "auto" }}>
-      {transactions.map((transaction) => (
+      {transactions.map((transaction, index) => (
         <>
           <ListItem
             sx={{ backgroundColor: generateStyle(transaction.type).color }}
+            key={index}
           >
             <ListItemAvatar>
               <Avatar>{generateStyle(transaction.type).icon}</Avatar>
             </ListItemAvatar>
             <ListItemText
               primary={"$" + Math.abs(transaction.amount)}
-              secondary={transaction.text}
+              secondary={transaction.title}
             />
 
-            <Tooltip title="Delete">
+            <Tooltip
+              title="Delete"
+              onClick={() => deleteTransaction(transaction.id)}
+            >
               <IconButton>
                 <DeleteIcon />
               </IconButton>

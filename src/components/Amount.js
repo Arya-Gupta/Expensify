@@ -8,7 +8,9 @@ export default function Amount() {
   const { transactions } = useContext(GlobalContext);
 
   const amountArr = transactions.map((transaction) => transaction.amount);
-  const total = amountArr.reduce((totalAmt, currentAmt) => totalAmt += currentAmt);
+  const total = amountArr
+    .reduce((totalAmt, currentAmt) => (totalAmt += currentAmt), 0)
+    .toFixed();
 
   return (
     <>

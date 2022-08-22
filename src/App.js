@@ -1,7 +1,7 @@
 import History from "./components/History";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import Form from "./components/Form";
+import TransactionForm from "./components/TransactionForm";
 import Typography from "@mui/material/Typography";
 import Amount from "./components/Amount";
 import Display from "./components/Display";
@@ -51,7 +51,7 @@ function App() {
               </Typography>
               <Amount />
               <Display />
-              <Form />
+              <TransactionForm />
             </Box>
           </Grid>
         </Grid>

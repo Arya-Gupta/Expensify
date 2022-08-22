@@ -5,7 +5,6 @@ import { GlobalContext } from "../context/GlobalState";
 
 export default function Amount() {
   const { transactions } = useContext(GlobalContext);
-
   const amounts = transactions.map((transaction) => transaction.amount);
 
   const calculateIncome = (amounts) => {
@@ -15,7 +14,8 @@ export default function Amount() {
       if (amt > 0) positiveAmounts.push(amt);
     }
     return positiveAmounts.reduce(
-      (totalAmt, currentAmt) => (totalAmt += currentAmt)
+      (totalAmt, currentAmt) => (totalAmt += currentAmt),
+      0
     );
   };
 
@@ -26,7 +26,8 @@ export default function Amount() {
       if (amt < 0) negativeAmounts.push(amt);
     }
     return negativeAmounts.reduce(
-      (totalAmt, currentAmt) => (totalAmt += currentAmt)
+      (totalAmt, currentAmt) => (totalAmt += currentAmt),
+      0
     );
   };
 
@@ -38,7 +39,7 @@ export default function Amount() {
       <ButtonGroup
         variant="contained"
         aria-label="outlined primary button group"
-        sx={{ display: "block", marginBottom: "20px" }}
+        sx={{ marginBottom: "20px" }}
       >
         <Button>Income: ${income}</Button>
         <Button>Expense: ${Math.abs(expense)}</Button>
@@ -46,4 +47,3 @@ export default function Amount() {
     </>
   );
 }
- 
