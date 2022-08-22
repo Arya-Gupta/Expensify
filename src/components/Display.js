@@ -7,34 +7,28 @@ export default function Amount() {
   const { transactions } = useContext(GlobalContext);
   const amounts = transactions.map((transaction) => transaction.amount);
 
-  const calculateIncome = (transactions) => {
-    let positiveAmounts = [];
+  const calc = (transactions) => {
+    let negativeArr = [],
+      positiveArr = [];
     for (let i = 0; i < transactions.length; i++) {
       let amt = transactions[i].amount;
       let type = transactions[i].type;
-      if (type == "income") positiveAmounts.push(amt);
+      if (type == "income") positiveArr.push(amt);
+      else negativeArr.push(amt);
     }
-    return positiveAmounts.reduce(
+    income = positiveArr.reduce(
+      (totalAmt, currentAmt) => (totalAmt += currentAmt),
+      0
+    );
+    expense = negativeArr.reduce(
       (totalAmt, currentAmt) => (totalAmt += currentAmt),
       0
     );
   };
 
-  const calculateExpense = (transactions) => {
-    let negativeAmounts = [];
-    for (let i = 0; i < transactions.length; i++) {
-      let amt = transactions[i].amount;
-      let type = transactions[i].type;
-      if (type == "expense") negativeAmounts.push(amt);
-    }
-    return negativeAmounts.reduce(
-      (totalAmt, currentAmt) => (totalAmt += currentAmt),
-      0
-    );
-  };
-
-  const income = calculateIncome(transactions);
-  const expense = calculateExpense(transactions);
+  let income = 0,
+    expense = 0;
+  calc(transactions);
 
   return (
     <>
