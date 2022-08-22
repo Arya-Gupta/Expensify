@@ -7,7 +7,12 @@ import { GlobalContext } from "../context/GlobalState";
 export default function Amount() {
   const { transactions } = useContext(GlobalContext);
 
-  const amountArr = transactions.map((transaction) => transaction.amount);
+  const amountArr = transactions.map((transaction) => {
+    return transaction.type == "income"
+      ? transaction.amount
+      : transaction.amount * -1;
+  });
+
   const total = amountArr
     .reduce((totalAmt, currentAmt) => (totalAmt += currentAmt), 0)
     .toFixed();

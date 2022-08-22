@@ -7,11 +7,36 @@ export default function Amount() {
   const { transactions } = useContext(GlobalContext);
   const amounts = transactions.map((transaction) => transaction.amount);
 
-  const calculateIncome = (amounts) => {
+  // const calculateIncome = (amounts) => {
+  //   let positiveAmounts = [];
+  //   for (let i = 0; i < amounts.length; i++) {
+  //     let amt = amounts[i];
+  //     if (amt > 0) positiveAmounts.push(amt);
+  //   }
+  //   return positiveAmounts.reduce(
+  //     (totalAmt, currentAmt) => (totalAmt += currentAmt),
+  //     0
+  //   );
+  // };
+
+  // const calculateExpense = (amounts) => {
+  //   let negativeAmounts = [];
+  //   for (let i = 0; i < amounts.length; i++) {
+  //     let amt = amounts[i];
+  //     if (amt < 0) negativeAmounts.push(amt);
+  //   }
+  //   return negativeAmounts.reduce(
+  //     (totalAmt, currentAmt) => (totalAmt += currentAmt),
+  //     0
+  //   );
+  // };
+
+  const calculateIncome = (transactions) => {
     let positiveAmounts = [];
-    for (let i = 0; i < amounts.length; i++) {
-      let amt = amounts[i];
-      if (amt > 0) positiveAmounts.push(amt);
+    for (let i = 0; i < transactions.length; i++) {
+      let amt = transactions[i].amount;
+      let type = transactions[i].type;
+      if (type == "income") positiveAmounts.push(amt);
     }
     return positiveAmounts.reduce(
       (totalAmt, currentAmt) => (totalAmt += currentAmt),
@@ -19,11 +44,12 @@ export default function Amount() {
     );
   };
 
-  const calculateExpense = (amounts) => {
+  const calculateExpense = (transactions) => {
     let negativeAmounts = [];
-    for (let i = 0; i < amounts.length; i++) {
-      let amt = amounts[i];
-      if (amt < 0) negativeAmounts.push(amt);
+    for (let i = 0; i < transactions.length; i++) {
+      let amt = transactions[i].amount;
+      let type = transactions[i].type;
+      if (type == "expense") negativeAmounts.push(amt);
     }
     return negativeAmounts.reduce(
       (totalAmt, currentAmt) => (totalAmt += currentAmt),
@@ -31,8 +57,8 @@ export default function Amount() {
     );
   };
 
-  const income = calculateIncome(amounts);
-  const expense = calculateExpense(amounts);
+  const income = calculateIncome(transactions);
+  const expense = calculateExpense(transactions);
 
   return (
     <>

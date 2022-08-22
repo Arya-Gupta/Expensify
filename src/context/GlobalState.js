@@ -4,10 +4,10 @@ import AppReducer from "./AppReducer";
 // Here we have our initial state which is a single object - however all we need is our transactions
 const initialState = {
   transactions: [
-    { id: 1, title: "Flower", amount: -20, type: "expense" },
-    { id: 2, title: "Salary", amount: 300, type: "income" },
-    { id: 3, title: "Book", amount: -10, type: "expense" },
-    { id: 4, title: "Errands", amount: 150, type: "income" },
+    // { id: 1, title: "Flower", amount: 20, type: "expense" },
+    // { id: 2, title: "Salary", amount: 300, type: "income" },
+    // { id: 3, title: "Book", amount: 10, type: "expense" },
+    // { id: 4, title: "Errands", amount: 150, type: "income" }
   ],
 };
 

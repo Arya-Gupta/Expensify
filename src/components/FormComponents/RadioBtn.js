@@ -1,19 +1,21 @@
-import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
+import React from "react";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
 
-export default function RadioButtonsGroup() {
+export default function ControlledRadioButtonsGroup(props) {
+
   return (
     <FormControl>
       <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
-        name="radio-buttons-group"
+        aria-labelledby="demo-controlled-radio-buttons-group"
+        name="controlled-radio-buttons-group"
+        value={props.radioInput}
+        onChange={(e) => props.setRadioInput(e.target.value)}
       >
-        <FormControlLabel value="female" control={<Radio />} label="Income" />
-        <FormControlLabel value="male" control={<Radio />} label="Expense" />
+        <FormControlLabel value="income" control={<Radio />} label="Income" />
+        <FormControlLabel value="expense" control={<Radio />} label="Expense" />
       </RadioGroup>
     </FormControl>
   );

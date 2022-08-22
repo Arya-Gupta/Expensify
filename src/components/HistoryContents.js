@@ -41,29 +41,27 @@ export default function FolderList(props) {
   return (
     <List sx={{ width: "70%", margin: "auto" }}>
       {transactions.map((transaction, index) => (
-        <>
-          <ListItem
-            sx={{ backgroundColor: generateStyle(transaction.type).color }}
-            key={index}
-          >
-            <ListItemAvatar>
-              <Avatar>{generateStyle(transaction.type).icon}</Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={"$" + Math.abs(transaction.amount)}
-              secondary={transaction.title}
-            />
+        <ListItem
+          sx={{ backgroundColor: generateStyle(transaction.type).color }}
+          key={index}
+        >
+          <ListItemAvatar>
+            <Avatar>{generateStyle(transaction.type).icon}</Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={"$" + Math.abs(transaction.amount)}
+            secondary={transaction.title}
+          />
 
-            <Tooltip
-              title="Delete"
-              onClick={() => deleteTransaction(transaction.id)}
-            >
-              <IconButton>
-                <DeleteIcon />
-              </IconButton>
-            </Tooltip>
-          </ListItem>
-        </>
+          <Tooltip
+            title="Delete"
+            onClick={() => deleteTransaction(transaction.id)}
+          >
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+        </ListItem>
       ))}
     </List>
   );
