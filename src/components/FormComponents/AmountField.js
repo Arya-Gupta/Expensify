@@ -7,18 +7,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 
 export default function InputAdornments() {
-  // const [values, setValues] = React.useState({
-  //   amount: "",
-  //   password: "",
-  //   weight: "",
-  //   weightRange: "",
-  //   showPassword: false,
-  // });
-
-  // const handleChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
-
   const [amount, setAmount] = useState("");
 
   return (
