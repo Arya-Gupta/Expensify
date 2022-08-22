@@ -24,7 +24,7 @@ export default function Amount() {
           sx={{
             color: "#8B9556",
             fontSize: "40px",
-            float: "left",
+            float: "left"
           }}
         />
         <Typography variant="h5" sx={{ paddingTop: "5px" }}>

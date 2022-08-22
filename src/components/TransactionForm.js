@@ -30,6 +30,8 @@ export default function TransactionForm() {
 
   const submitTransaction = (e) => {
     e.preventDefault();
+    if (title.length === 0 || amount.length === 0) return;
+    handleClick();
 
     const newTransaction = {
       id: transactions.length + 1,
@@ -61,7 +63,7 @@ export default function TransactionForm() {
         <TitleField title={title} setTitle={setTitle} />
         <AmountField amount={amount} setAmount={setAmount} total={total} />
 
-        <Stack onClick={handleClick}>
+        <Stack>
           <Button
             onClick={submitTransaction}
             variant="contained"
@@ -69,7 +71,7 @@ export default function TransactionForm() {
           >
             Add
           </Button>
-          <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
             <Alert
               onClose={handleClose}
               severity="success"
