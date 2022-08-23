@@ -23,6 +23,30 @@
 - The total balance is displayed with a dollar icon
 - A slider appears in case the history component is overflowed
 
+## Technologies Used
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+
+## How do I run this project?
+
+Download the project.
+
+Navigate to the new folder:
+```
+cd {folder name}
+```
+
+Install the required dependencies:
+```
+npm install
+```
+
+To run the React project:
+```
+npm start
+```
+
 ## How to contribute
 
 To fix a bug or enhance an existing module, follow these steps:
