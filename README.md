@@ -10,3 +10,27 @@
     </td>
   </tr>
 </table>
+
+
+![image](https://user-images.githubusercontent.com/84087089/186161846-e1d6dd64-b1a4-4b7e-8772-a938fd0b35a4.png)
+
+
+## Structure Of The Project
+
+- The UI is divided into two parts - the left part shows the history while the right part displays the the total amount, income and expenses by the user
+- The left part of the UI displays history of all the previously made transactions
+- The right part of the UI displays a form which can be submitted to add any new income/expense 
+- The total balance is displayed with a dollar icon
+- A slider appears in case the history component is overflowed
+
+## How to contribute
+
+To fix a bug or enhance an existing module, follow these steps:
+
+- Fork the repo
+- Create a new branch (`git checkout -b improve-feature`)
+- Make the appropriate changes in the files
+- Add changes to reflect the changes made
+- Commit your changes (`git commit -am 'Improve feature'`)
+- Push to the branch (`git push origin improve-feature`)
+- Create a Pull Request 

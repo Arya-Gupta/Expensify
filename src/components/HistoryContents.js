@@ -13,8 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
 export default function FolderList(props) {
-  const { transactions } = useContext(GlobalContext);
-  const { deleteTransaction } = useContext(GlobalContext);
+  const { transactions, deleteTransaction } = useContext(GlobalContext);
 
   const expense = {
     color: props.colorSubtract,
@@ -28,14 +27,6 @@ export default function FolderList(props) {
 
   const generateStyle = (transactionType) => {
     return transactionType == "expense" ? expense : income;
-  };
-
-  const handleClick = () => {
-    console.info("You clicked the Chip.");
-  };
-
-  const handleDelete = () => {
-    console.info("You clicked the delete icon.");
   };
 
   return (

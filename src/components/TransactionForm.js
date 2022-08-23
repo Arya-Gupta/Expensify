@@ -5,7 +5,6 @@ import TitleField from "./FormComponents/TitleField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { GlobalContext } from "../context/GlobalState";
-
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
@@ -37,7 +36,7 @@ export default function TransactionForm() {
       id: transactions.length + 1,
       title: title,
       amount: Math.abs(amount),
-      type: radioInput,
+      type: radioInput
     };
 
     setTitle("");
