@@ -22,6 +22,8 @@
 - The right part of the UI displays a form which can be submitted to add any new income/expense 
 - The total balance is displayed with a dollar icon
 - A slider appears in case the history component is overflowed
+- State in the application is managed through hooks like useState and useReducer
+- Transactions are stored as global state using the Context API
 
 ## Technologies Used
 
