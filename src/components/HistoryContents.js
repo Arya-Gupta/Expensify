@@ -17,12 +17,12 @@ export default function FolderList(props) {
 
   const expense = {
     color: props.colorSubtract,
-    icon: <RemoveOutlinedIcon />,
+    icon: <RemoveOutlinedIcon />
   };
 
   const income = {
     color: props.colorAdd,
-    icon: <AddIcon />,
+    icon: <AddIcon />
   };
 
   const generateStyle = (transactionType) => {

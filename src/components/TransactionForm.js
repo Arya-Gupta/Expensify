@@ -18,8 +18,7 @@ export default function TransactionForm() {
   const [amount, setAmount] = useState("");
   const [radioInput, setRadioInput] = useState("income");
 
-  const { addTransaction } = useContext(GlobalContext);
-  const { transactions } = useContext(GlobalContext);
+  const { addTransaction, transactions } = useContext(GlobalContext);
 
   const amountArr = transactions.map((transaction) => transaction.amount);
   const total = amountArr.reduce(
