@@ -15,7 +15,7 @@
 ![image](https://user-images.githubusercontent.com/84087089/186161846-e1d6dd64-b1a4-4b7e-8772-a938fd0b35a4.png)
 
 
-## Structure Of The Project
+## 🚀 Features
 
 - The UI is divided into two parts - the left part shows the history while the right part displays the the total amount, income and expenses by the user
 - The left part of the UI displays history of all the previously made transactions
@@ -24,14 +24,15 @@
 - A slider appears in case the history component is overflowed
 - State in the application is managed through hooks like useState and useReducer
 - Transactions are stored as global state using the Context API
+- Supports light mode and dark mode
 
-## Technologies Used
+## 💻 Technologies 
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
-## How do I run this project?
+## 🔨 How do I run this project?
 
 Download the project.
 
@@ -50,7 +51,7 @@ To run the React project:
 npm start
 ```
 
-## How to contribute
+## 🔧 How to contribute
 
 To fix a bug or enhance an existing module, follow these steps:
 
