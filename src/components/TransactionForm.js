@@ -13,7 +13,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function TransactionForm() {
+export default function TransactionForm(props) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [radioInput, setRadioInput] = useState("income");
@@ -35,7 +35,7 @@ export default function TransactionForm() {
       id: transactions.length + 1,
       title: title,
       amount: Math.abs(amount),
-      type: radioInput
+      type: radioInput,
     };
 
     setTitle("");
@@ -57,9 +57,18 @@ export default function TransactionForm() {
   return (
     <>
       <Box>
-        <RadioBtn radioInput={radioInput} setRadioInput={setRadioInput} />
-        <TitleField title={title} setTitle={setTitle} />
-        <AmountField amount={amount} setAmount={setAmount} total={total} />
+        <RadioBtn
+          radioInput={radioInput}
+          setRadioInput={setRadioInput}
+          theme={props.theme}
+        />
+        <TitleField title={title} setTitle={setTitle} theme={props.theme} />
+        <AmountField
+          amount={amount}
+          setAmount={setAmount}
+          total={total}
+          theme={props.theme}
+        />
 
         <Stack>
           <Button

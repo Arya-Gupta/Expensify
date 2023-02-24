@@ -7,10 +7,41 @@ import Amount from "./components/Amount";
 import Display from "./components/Display";
 import { GlobalProvider } from "./context/GlobalState";
 import "./App.css";
+import ModeSwitch from "./components/ModeSwitch";
+import { useState } from "react";
 
 function App() {
-  const colorR = "#E6EBE0";
-  const colorL = "#ffe8eb";
+  const theme = {
+    dark: {
+      right: "#212529",
+      left: "#042743",
+      text: "white",
+      symbol: "black",
+      add: "#3e6963",
+      subtract: "#782218",
+    },
+    light: {
+      right: "#E6EBE0",
+      left: "#ffe8eb",
+      text: "black",
+      symbol: "gray",
+      add: "rgb(155, 193, 188)",
+      subtract: "rgb(237, 106, 90)",
+    },
+  };
+
+  const [mode, setMode] = useState("light");
+  const [activeTheme, setTheme] = useState(theme.light);
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      setTheme(theme.dark);
+    } else {
+      setMode("light");
+      setTheme(theme.light);
+    }
+  };
 
   return (
     <>
@@ -20,7 +51,7 @@ function App() {
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           sx={{
-            backgroundColor: colorL,
+            backgroundColor: activeTheme.left,
             height: "100vh",
             overflow: "auto",
             p: 0,
@@ -28,12 +59,12 @@ function App() {
           }}
         >
           <Grid xs={6} sx={{ height: "100%", overflow: "auto", p: 0 }}>
-            <History sx={{ width: "100%" }} />
+            <History sx={{ width: "100%" }} theme={activeTheme} />
           </Grid>
           <Grid
             xs={6}
             sx={{
-              backgroundColor: colorR,
+              backgroundColor: activeTheme.right,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -41,16 +72,23 @@ function App() {
             }}
           >
             <Box>
+              <Box onClick={toggleMode}>
+                <ModeSwitch />
+              </Box>
               <Typography
                 variant="h2"
                 component="h1"
-                sx={{ marginBottom: "50px", marginTop: "50px" }}
+                sx={{
+                  marginBottom: "50px",
+                  marginTop: "50px",
+                  color: activeTheme.text,
+                }}
               >
                 Expensify
               </Typography>
-              <Amount />
+              <Amount theme={activeTheme} />
               <Display />
-              <TransactionForm />
+              <TransactionForm theme={activeTheme} />
             </Box>
           </Grid>
         </Grid>

@@ -1,5 +1,4 @@
 export default (state, action) => {
-
   switch (action.type) {
     case "DEL":
       let delTransactions = [];
@@ -12,7 +11,7 @@ export default (state, action) => {
 
       return {
         ...state,
-        transactions: delTransactions
+        transactions: delTransactions,
       };
 
     case "ADD":
@@ -25,7 +24,7 @@ export default (state, action) => {
 
       return {
         ...state,
-        transactions: addTransactions
+        transactions: addTransactions,
       };
 
     default:

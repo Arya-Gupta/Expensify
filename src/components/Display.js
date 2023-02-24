@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { GlobalContext } from "../context/GlobalState";
 
-export default function Amount() {
+export default function Display() {
   const { transactions } = useContext(GlobalContext);
   const amounts = transactions.map((transaction) => transaction.amount);
 
@@ -37,7 +37,7 @@ export default function Amount() {
         aria-label="outlined primary button group"
         sx={{ marginBottom: "20px" }}
       >
-        <Button>Income: ${income}</Button>
+        <Button sx={{ color: "white" }}>Income: ${income}</Button>
         <Button>Expense: ${Math.abs(expense)}</Button>
       </ButtonGroup>
     </>

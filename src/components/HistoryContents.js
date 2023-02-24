@@ -12,17 +12,17 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-export default function FolderList(props) {
+export default function HistoryContents(props) {
   const { transactions, deleteTransaction } = useContext(GlobalContext);
 
   const expense = {
     color: props.colorSubtract,
-    icon: <RemoveOutlinedIcon />
+    icon: <RemoveOutlinedIcon />,
   };
 
   const income = {
     color: props.colorAdd,
-    icon: <AddIcon />
+    icon: <AddIcon />,
   };
 
   const generateStyle = (transactionType) => {
@@ -37,14 +37,18 @@ export default function FolderList(props) {
           key={index}
         >
           <ListItemAvatar>
-            <Avatar>{generateStyle(transaction.type).icon}</Avatar>
+            <Avatar sx={{ color: props.mode.symbol }}>
+              {generateStyle(transaction.type).icon}
+            </Avatar>
           </ListItemAvatar>
           <ListItemText
+            sx={{ color: "white" }}
             primary={"$" + Math.abs(transaction.amount)}
             secondary={transaction.title}
           />
 
           <Tooltip
+            sx={{ color: props.mode.symbol }}
             title="Delete"
             onClick={() => deleteTransaction(transaction.id)}
           >

@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { GlobalContext } from "../context/GlobalState";
 
-export default function Amount() {
+export default function Amount(props) {
   const { transactions } = useContext(GlobalContext);
 
   const amountArr = transactions.map((transaction) => {
@@ -24,10 +24,13 @@ export default function Amount() {
           sx={{
             color: "#8B9556",
             fontSize: "40px",
-            float: "left"
+            float: "left",
           }}
         />
-        <Typography variant="h5" sx={{ paddingTop: "5px" }}>
+        <Typography
+          variant="h5"
+          sx={{ paddingTop: "5px", color: props.theme.text }}
+        >
           {total}
         </Typography>
       </Box>

@@ -50,9 +50,7 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
-export default function BackToTop(props) {
-  const colorSubtract = "#ED6A5A";
-  const colorAdd = "#9BC1BC";
+export default function History(props) {
   const colorH = "#2b2d42";
 
   return (
@@ -79,7 +77,11 @@ export default function BackToTop(props) {
       <Toolbar id="back-to-top-anchor" />
       <Container>
         <Box sx={{ marginBottom: "50px" }}>
-          <HistoryContents colorAdd={colorAdd} colorSubtract={colorSubtract} />
+          <HistoryContents
+            colorAdd={props.theme.add}
+            colorSubtract={props.theme.subtract}
+            mode={props.theme}
+          />
         </Box>
       </Container>
       <ScrollTop {...props}>

@@ -1,10 +1,8 @@
 import * as React from "react";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
-export default function BasicTextFields(props) {
-  
+export default function TitleField(props) {
   return (
     <Box
       component="form"
@@ -20,6 +18,14 @@ export default function BasicTextFields(props) {
         value={props.title}
         onChange={(e) => props.setTitle(e.target.value)}
         variant="standard"
+        sx={{
+          "& .MuiInputBase-root": {
+            color: props.theme.text,
+          },
+          "& .MuiFormLabel-root": {
+            color: props.theme.text,
+          },
+        }}
       />
     </Box>
   );
